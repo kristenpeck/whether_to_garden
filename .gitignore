@@ -40,3 +40,6 @@ vignettes/*.pdf
 
 #image files
 *.jpg
+
+#powerpoint
+*.pptx
