@@ -29,7 +29,7 @@ ggplot(fsj.recent)+
 
 # Can I safely plants my tomatoes outside on May long weekend?
 
-#tool to find Vicoria Day long weekend year by year:
+#tool to find Vicoria Day long weekend year by year (should script this further but too lazy):
 yr <- 2014
 dates <- as.character(seq(ymd(paste(yr,"-05-18")),ymd(paste(yr,"-05-24")),by = "days"))
 wday(dates, label = T, abbr = F)
