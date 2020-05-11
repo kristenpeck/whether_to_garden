@@ -9,6 +9,7 @@ library(lubridate)
 
 
 weathercan::stations_search(name = "Fort St. John")
+weathercan::stations_search(name = "Prince George")
 
 fsj.recent <- weather_dl(station_ids = 50837, interval= "day") #defaults to full range of dates
 
@@ -50,7 +51,7 @@ min_temp_on_may_long <- may.long.df %>%
 min_temp_on_may_long$min_temp
 
 plot_maytemps <- ggplot(data=min_temp_on_may_long)+
-  geom_point(aes(x=year.y, y=min_temp))+
+  geom_point(aes(x=year.y, y=min_temp), size=4)+
   geom_hline(yintercept=5, col="blue")+
   theme_bw()
 
