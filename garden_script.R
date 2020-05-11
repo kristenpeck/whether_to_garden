@@ -8,9 +8,9 @@ library(dplyr)
 library(lubridate)
 
 
-stations_search(name = "Fort St. John")
+weathercan::stations_search(name = "Fort St. John")
 
-fsj.recent <- weather_dl(station_ids = 50837, interval= "day") #defaults to most recent
+fsj.recent <- weather_dl(station_ids = 50837, interval= "day") #defaults to full range of dates
 
 str(fsj.recent)
 
@@ -26,9 +26,9 @@ ggplot(fsj.recent)+
 
 
 
+# Can I safely plants my tomatoes outside on May long weekend?
 
-
-#tool to find Vicoria Day long weekend year by year
+#tool to find Vicoria Day long weekend year by year:
 yr <- 2014
 dates <- as.character(seq(ymd(paste(yr,"-05-18")),ymd(paste(yr,"-05-24")),by = "days"))
 wday(dates, label = T, abbr = F)
@@ -68,9 +68,10 @@ ggdraw() +
 
 
 
-# okay, but maybe this year is a warm one! 
+# okay, but maybe this year is a warm one! How is 2020 shaping up?
 
-# look to see cumulative degree days with mean temps over 5 degrees
+# look to see cumulative degree days with mean temps over 5 degrees 
+  # since the start of the year :
 
 str(fsj.recent)
 range(fsj.recent$date)
@@ -91,7 +92,7 @@ fsj.dd
 
 ggplot(fsj.dd)+
   geom_line(aes(x=jday, y=cumulative.dd, col=cumulative.dd), size=2)+
-  geom_vline(xintercept=yday(ymd("2020-05-08")))+
+  geom_vline(xintercept=yday(ymd("2020-05-11")))+
   scale_color_gradient("cumulative\n degrees",low="blue", high="red") +
   facet_wrap(~year) +
   labs(title="Cumulative degree days >=5 deg C, April-May", y="")
