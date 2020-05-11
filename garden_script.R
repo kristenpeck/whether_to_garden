@@ -9,7 +9,7 @@ library(lubridate)
 
 
 weathercan::stations_search(name = "Fort St. John")
-weathercan::stations_search(name = "Prince George")
+
 
 fsj.recent <- weather_dl(station_ids = 50837, interval= "day") #defaults to full range of dates
 
